@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import {Header} from './header';
-import {Title} from './title';
-import {Techs} from './techs/techs';
-import {Footer} from './footer';
 
 const styles = {
   container: {
@@ -23,11 +20,12 @@ export class Main extends Component {
       <div style={styles.container}>
         <Header/>
         <main style={styles.main}>
-          <Title/>
-          <Techs/>
+          {this.props.children}
         </main>
-        <Footer/>
       </div>
     );
   }
 }
+Main.propTypes = {
+  children: React.PropTypes.node
+};
