@@ -1,37 +1,26 @@
 import React, {Component} from 'react';
+import {Text, Toolbar} from 'rebass';
 
 const styles = {
-  header: {
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: '#1f1f1f'
+  text: {
+    fontSize: '1.2rem'
   },
-  title: {
-    flex: 1,
-    fontSize: '1.5rem',
-    margin: '1rem'
-  },
-  date: {
-    flex: 1,
-    textAlign: 'right',
-    margin: '1rem',
-    color: 'white'
+  toolbar: {
+    backgroundColor: '#3A8DAB',
+    borderBottom: '10px solid #34819C'
   }
 };
 
 export class Header extends Component {
   render() {
     return (
-      <header style={styles.header}>
-        <p style={styles.title}>
-          <a href="https://github.com/FountainJS/generator-fountain-webapp" target="_blank">
-            Fountain Generator
-          </a>
-        </p>
-        <p style={styles.date}>
-          Generated with FountainJS v1.0.0-rc1 on Mon Oct 31 2016 16:48:05 GMT-0300 (ART)
-        </p>
-      </header>
+      <Toolbar
+        style={styles.toolbar}
+        p={3}
+        pb={2}
+        >
+        <Text style={styles.text}>Product Keeper</Text>
+      </Toolbar>
     );
   }
 }
