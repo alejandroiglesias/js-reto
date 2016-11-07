@@ -1,21 +1,14 @@
 import React, {Component} from 'react';
-// import axios from 'axios';
-// import {Tech} from '../techs/tech';
 import {PropTypes, inject, observer} from 'mobx-react';
+import {Base, InlineForm} from 'rebass';
+import {Box, Flex} from 'reflexbox';
+import Icon from 'react-geomicons';
 
 const styles = {
-  container: {
-    margin: '1rem'
-  },
-  h2: {
-    fontWeight: 300,
-    fontSize: '1.5rem'
-  },
-  techs: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around'
+  search: {
+    button: {
+      padding: '7px 9px'
+    }
   }
 };
 
@@ -23,16 +16,28 @@ const ProductList = inject('products')(observer(
   class ProductList extends Component {
     render() {
       return (
-        <div style={styles.container}>
-          <h2 style={styles.h2}>
-            Products
-          </h2>
+        <Base px={3} py={2}>
+          <Flex gutter={3}>
+            <Box col={6} p={2}>
+              <InlineForm
+                buttonLabel={<Icon name="search"/>}
+                buttonStyles={styles.search.button}
+                label="Search"
+                name="q"
+                onChange={function noRefCheck() {}}
+                onClick={function noRefCheck() {}}
+                />
+            </Box>
+            <Box col={6} p={2}>
+            asdf
+            </Box>
+          </Flex>
           <div style={styles.techs}>
             {this.props.products.map((product, i) => (
               <div key={i}>{product}</div>
             ))}
           </div>
-        </div>
+        </Base>
       );
     }
   }

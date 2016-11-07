@@ -14,11 +14,7 @@ const styles = {
 export class Header extends Component {
   render() {
     return (
-      <Toolbar
-        style={styles.toolbar}
-        p={3}
-        pb={2}
-        >
+      <Toolbar style={styles.toolbar} p={3} pb={2}>
         <Text style={styles.text}>Product Keeper</Text>
       </Toolbar>
     );
