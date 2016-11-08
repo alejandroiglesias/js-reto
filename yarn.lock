@@ -1221,7 +1221,7 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
-classnames@^2.2.3:
+classnames, classnames@^2.2.3:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
@@ -2419,6 +2419,10 @@ flat-cache@^1.2.1:
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
+
+flexboxgrid:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/flexboxgrid/-/flexboxgrid-6.3.1.tgz#e99898afc07b7047722bb81a958a5fba4d4e20fd"
 
 follow-redirects@0.0.7:
   version "0.0.7"
@@ -4953,6 +4957,10 @@ react-dom@^15.0.1:
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.3.2.tgz#c46b0aa5380d7b838e7a59c4a7beff2ed315531f"
 
+react-flexbox-grid:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/react-flexbox-grid/-/react-flexbox-grid-0.10.2.tgz#9de9b5d0b065adbb3b3b7e26033515abf9a9a2b4"
+
 react-geomicons:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-geomicons/-/react-geomicons-2.1.0.tgz#c6bbd24bb2178cc2e85749a1a8e93b9c3b86f99b"
@@ -5095,13 +5103,6 @@ reduce-function-call@^1.0.1:
   resolved "https://registry.yarnpkg.com/reduce-function-call/-/reduce-function-call-1.0.1.tgz#fa02e126e695824263cab91d3a5b0fdc1dd27a9a"
   dependencies:
     balanced-match "~0.1.0"
-
-reflexbox:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/reflexbox/-/reflexbox-2.2.2.tgz#62e30ddb6f4f7176ab716d80af9aac686ab4351c"
-  dependencies:
-    robox "^1.0.0-beta.8"
-    ruled "^1.0.1"
 
 regenerate@^1.2.1:
   version "1.3.1"
@@ -5324,16 +5325,6 @@ rimraf@^2.2.8, rimraf@^2.3.3, rimraf@~2.5.1, rimraf@~2.5.4, rimraf@2:
 ripemd160@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ripemd160/-/ripemd160-1.0.1.tgz#93a4bbd4942bc574b69a8fa57c71de10ecca7d6e"
-
-robox@^1.0.0-beta.8:
-  version "1.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/robox/-/robox-1.0.0-beta.8.tgz#9aaee1dacf38a8c4ca4584a80012aebab5711c73"
-  dependencies:
-    understyle "^1.2.0"
-
-ruled@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ruled/-/ruled-1.0.1.tgz#8301a1accc9d2e14b6502fca7033582335c2c0f4"
 
 run-async@^0.1.0:
   version "0.1.0"
@@ -6000,12 +5991,6 @@ unc-path-regex@^0.1.0:
 underscore@1.7.x:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
-
-understyle@^1.2.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/understyle/-/understyle-1.3.0.tgz#df3f9a9be96779d718c3da9598fad1c2f90f24ee"
-  dependencies:
-    object-assign "^4.1.0"
 
 undertaker-forward-reference@^0.1.0:
   version "0.1.0"

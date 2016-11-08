@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Grid} from 'react-flexbox-grid';
 import {Text, Toolbar} from 'rebass';
 
 const styles = {
@@ -15,7 +16,9 @@ export class Header extends Component {
   render() {
     return (
       <Toolbar style={styles.toolbar} p={3} pb={2}>
-        <Text style={styles.text}>Product Keeper</Text>
+        <Grid>
+          <Text style={styles.text}>Product Keeper</Text>
+        </Grid>
       </Toolbar>
     );
   }
