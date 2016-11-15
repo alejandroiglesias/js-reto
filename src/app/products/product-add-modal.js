@@ -1,72 +1,82 @@
 import React from 'react';
-import {Col, Row} from 'react-flexbox-grid';
 import {
   Button,
   Close,
-  Input,
   Overlay,
   Panel,
   PanelFooter,
   PanelHeader,
-  Space,
-  Textarea
+  Space
 } from 'rebass';
+import {inject, observer, PropTypes} from 'mobx-react';
+import ProductForm from './product-form';
 
-const ProductAddModal = ({modalOpen, onClose}) => (
-  <Overlay
-    open={modalOpen}
-    onDismiss={onClose}
-    >
-    <Panel theme="warning" style={{width: '560px'}}>
-      <PanelHeader>
-        Product Keeper
-        <Space auto/>
-        <Close onClick={onClose}/>
-      </PanelHeader>
-      <form>
-        <Row>
-          <Col xs={12} sm md lg>
-            <Input label="Product Name" type="text"/>
-          </Col>
-          <Col xs={12} sm md lg>
-            <Input label="Category" type="text"/>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} sm md lg>
-            <Input label="Brand" type="text"/>
-          </Col>
-          <Col xs={12} sm md lg>
-            <Input label="Height" type="text"/>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} sm={6} md={6} lg={6}>
-            <Input label="Width" type="text"/>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs sm md lg>
-            <Textarea name="product[notes]" label="Notes"/>
-          </Col>
-        </Row>
-      </form>
-      <hr/>
-      <PanelFooter style={{borderTop: 'none'}}>
-        <Space auto/>
-        <Button
-          theme="warning"
-          onClick={onClose}
-          children="Save"
-          />
-      </PanelFooter>
-    </Panel>
-  </Overlay>
-);
+const defaultNewProduct = {
+  name: '',
+  category: '',
+  brand: '',
+  height: '',
+  width: '',
+  notes: ''
+};
 
-ProductAddModal.propTypes = {
+const ProductAddModal = inject('products')(observer(
+  class ProductAddModal extends React.Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        newProduct: defaultNewProduct
+      };
+      this.handleProductFormChange = this.handleProductFormChange.bind(this);
+      this.handleSave = this.handleSave.bind(this);
+    }
+
+    handleProductFormChange(newProduct) {
+      this.setState({newProduct});
+    }
+
+    handleSave() {
+      this.props.products.push(this.state.newProduct);
+      this.setState({newProduct: defaultNewProduct}, this.props.onClose);
+    }
+
+    render() {
+      return (
+        <Overlay
+          open={this.props.modalOpen}
+          onDismiss={this.props.onClose}
+          >
+          <Panel theme="warning" style={{width: '560px'}}>
+            <PanelHeader>
+              Product Keeper
+              <Space auto/>
+              <Close onClick={this.props.onClose}/>
+            </PanelHeader>
+            <ProductForm
+              onChange={this.handleProductFormChange}
+              value={this.state.newProduct}
+              />
+            <hr/>
+            <PanelFooter style={{borderTop: 'none'}}>
+              <Space auto/>
+              <Button
+                theme="warning"
+                onClick={this.handleSave}
+                children="Save"
+                />
+            </PanelFooter>
+          </Panel>
+        </Overlay>
+      );
+    }
+  }
+));
+
+ProductAddModal.wrappedComponent.propTypes = {
   modalOpen: React.PropTypes.bool.isRequired,
-  onClose: React.PropTypes.func.isRequired
+  onClose: React.PropTypes.func.isRequired,
+  products: PropTypes.observableArray
 };
 
 export default ProductAddModal;

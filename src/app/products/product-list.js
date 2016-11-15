@@ -3,7 +3,6 @@ import {PropTypes, inject, observer} from 'mobx-react';
 import {Base, Button, InlineForm, Table} from 'rebass';
 import {Col, Grid, Row} from 'react-flexbox-grid';
 import Icon from 'react-geomicons';
-import {withRouter} from 'react-router';
 import ProductAddModal from './product-add-modal';
 
 const styles = {
@@ -17,7 +16,7 @@ const styles = {
   }
 };
 
-const ProductList = inject('products')(observer(withRouter(
+const ProductList = inject('products')(observer(
   class ProductList extends Component {
 
     constructor(props) {
@@ -77,12 +76,11 @@ const ProductList = inject('products')(observer(withRouter(
       );
     }
   }
-)));
+));
 
 ProductList.wrappedComponent.propTypes = {
   children: React.PropTypes.node,
-  products: PropTypes.observableArray,
-  router: React.PropTypes.object
+  products: PropTypes.observableArray
 };
 
 export default ProductList;
