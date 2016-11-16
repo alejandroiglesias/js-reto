@@ -49,4 +49,14 @@ Los requerimientos del desafío parecen imprecisos, eso está bien?
 - Esto está diseñado para que tenga un final abierto, así que sientase libre de tener creatividad en las áreas a las que les falta directrices detalladas.
 
 # Como correr Mi App (README.md)
---- Inserte su readme aquí ---
+
+Para correr la aplicación es necesario tener instalado [Node](https://nodejs.org/) y ejecutar:
+```
+npm install && npm run serve
+```
+
+El proyecto también incluye un archivo `yarn.lock` por lo cual se puede replicar la dependencia de
+paquetes testeada en el entorno de desarrollo. Para instalar Yarn correr `npm install -g yarn`.
+Luego en vez de correr `npm install` se puede correr `yarn install` para instalar las dependencias.
+
+Para realizar un build se debe correr `npm run build`.
