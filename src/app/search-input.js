@@ -3,19 +3,28 @@ import {Button, Input} from 'rebass';
 import Icon from 'react-geomicons';
 
 const SearchInput = props => {
-  const {onChange, onClick} = props;
+  const {onChange, onSearch} = props;
   const styles = {
+    searchButton: {
+      marginLeft: '-1px',
+      padding: '7px 9px'
+    },
     searchContainer: {
       display: 'flex',
       alignItems: 'center'
     },
     searchInput: {
       flex: '1 1 auto'
-    },
-    searchButton: {
-      marginLeft: '-1px',
-      padding: '7px 9px'
     }
+  };
+  let value;
+
+  const onChangeWrapper = event => {
+    value = event.target.value;
+    onChange(value);
+  };
+  const onSearchWrapper = () => {
+    onSearch(value);
   };
 
   return (
@@ -25,12 +34,12 @@ const SearchInput = props => {
         label="Search"
         mb={0}
         name="search"
-        onChange={onChange}
+        onChange={onChangeWrapper}
         placeholder="Search"
         rounded={false}
         style={styles.searchInput}
         />
-      <Button onClick={onClick} rounded={false} style={styles.searchButton} theme="warning">
+      <Button onClick={onSearchWrapper} rounded={false} style={styles.searchButton} theme="warning">
         <Icon name="search"/>
       </Button>
     </div>
@@ -41,12 +50,12 @@ SearchInput.propTypes = {
   /** onChange handler for input */
   onChange: React.PropTypes.func,
   /** onClick handler for button */
-  onClick: React.PropTypes.func
+  onSearch: React.PropTypes.func
 };
 
 SearchInput.defaultProps = {
-  onClick: () => {},
-  onChange: () => {}
+  onChange: () => {},
+  onSearch: () => {}
 };
 
 export default SearchInput;

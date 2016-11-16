@@ -4,6 +4,7 @@ import {Base, Button, Space, Table} from 'rebass';
 import {Col, Grid, Row} from 'react-flexbox-grid';
 import SearchInput from '../search-input';
 import ProductAddModal from './product-add-modal';
+import fuzzysearch from 'fuzzysearch';
 
 const styles = {
   actionsContainer: {
@@ -32,8 +33,8 @@ const ProductList = inject('products')(observer(
       this.setState({isAddModalOpen: true});
     }
 
-    handleSearch(event) {
-      this.setState({search: event.target.value});
+    handleSearch(search) {
+      this.setState({search});
     }
 
     render() {
@@ -41,7 +42,7 @@ const ProductList = inject('products')(observer(
         if (!this.state.search) {
           return true;
         }
-        return product.name.toLowerCase().includes(this.state.search.toLowerCase());
+        return fuzzysearch(this.state.search.toLowerCase(), product.name.toLowerCase());
       });
       return (
         <Base>
@@ -49,7 +50,7 @@ const ProductList = inject('products')(observer(
             <Grid>
               <Row>
                 <Col xs={12} sm={3} md={3} lg={3}>
-                  <SearchInput onChange={this.handleSearch}/>
+                  <SearchInput onSearch={this.handleSearch}/>
                 </Col>
                 <Col xs={12} sm md lg style={styles.actionsContainer}>
                   <Space auto/>
