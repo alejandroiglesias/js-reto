@@ -55,8 +55,8 @@ Para correr la aplicación es necesario tener instalado [Node](https://nodejs.or
 npm install && npm run serve
 ```
 
-El proyecto también incluye un archivo `yarn.lock` por lo cual se puede replicar la dependencia de
-paquetes testeada en el entorno de desarrollo. Para instalar Yarn correr `npm install -g yarn`.
+El proyecto también incluye un archivo `yarn.lock` por lo cual se pueden replicar las dependencias
+exactas utilizadas en el entorno de desarrollo. Para instalar Yarn correr `npm install -g yarn`.
 Luego en vez de correr `npm install` se puede correr `yarn install` para instalar las dependencias.
 
-Para realizar un build se debe correr `npm run build`.
+Para realizar un build de producción se debe correr `npm run build`.
