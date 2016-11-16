@@ -20,6 +20,21 @@ const defaultNewProduct = {
   notes: ''
 };
 
+const styles = {
+  hr: {
+    border: 'none',
+    borderTop: '1px solid #F5F5F5',
+    marginTop: 0,
+    marginBottom: '-16px'
+  },
+  panel: {
+    width: '560px'
+  },
+  panelFooter: {
+    borderTop: 'none'
+  }
+};
+
 const ProductAddModal = inject('products')(observer(
   class ProductAddModal extends React.Component {
 
@@ -47,7 +62,7 @@ const ProductAddModal = inject('products')(observer(
           open={this.props.modalOpen}
           onDismiss={this.props.onClose}
           >
-          <Panel theme="warning" style={{width: '560px'}}>
+          <Panel theme="warning" rounded={false} style={styles.panel}>
             <PanelHeader>
               Product Keeper
               <Space auto/>
@@ -57,13 +72,14 @@ const ProductAddModal = inject('products')(observer(
               onChange={this.handleProductFormChange}
               value={this.state.newProduct}
               />
-            <hr/>
-            <PanelFooter style={{borderTop: 'none'}}>
+            <hr style={styles.hr}/>
+            <PanelFooter style={styles.panelFooter}>
               <Space auto/>
               <Button
-                theme="warning"
-                onClick={this.handleSave}
                 children="Save"
+                onClick={this.handleSave}
+                rounded={false}
+                theme="warning"
                 />
             </PanelFooter>
           </Panel>

@@ -1,9 +1,6 @@
 import React from 'react';
 import {Col, Row} from 'react-flexbox-grid';
-import {
-  Input,
-  Textarea
-} from 'rebass';
+import {Input, Textarea} from 'rebass';
 
 class ProductForm extends React.Component {
 
@@ -13,7 +10,7 @@ class ProductForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleInput(e) {
+  handleInput(event) {
     // This is needed so that object properties are set and read in this specific order.
     const value = {
       name: this.props.value.name,
@@ -23,11 +20,11 @@ class ProductForm extends React.Component {
       width: this.props.value.width,
       notes: this.props.value.notes
     };
-    this.props.onChange(Object.assign({}, value, {[e.target.name]: e.target.value}));
+    this.props.onChange(Object.assign({}, value, {[event.target.name]: event.target.value}));
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
     this.props.onSubmit();
   }
 
@@ -40,6 +37,7 @@ class ProductForm extends React.Component {
               label="Product Name"
               name="name"
               onInput={this.handleInput}
+              rounded={false}
               type="text"
               value={this.props.value.name}
               />
@@ -49,6 +47,7 @@ class ProductForm extends React.Component {
               label="Category"
               name="category"
               onInput={this.handleInput}
+              rounded={false}
               type="text"
               value={this.props.value.category}
               />
@@ -60,6 +59,7 @@ class ProductForm extends React.Component {
               label="Brand"
               name="brand"
               onInput={this.handleInput}
+              rounded={false}
               type="text"
               value={this.props.value.brand}
               />
@@ -69,6 +69,7 @@ class ProductForm extends React.Component {
               label="Height"
               name="height"
               onInput={this.handleInput}
+              rounded={false}
               type="text"
               value={this.props.value.height}
               />
@@ -80,6 +81,7 @@ class ProductForm extends React.Component {
               label="Width"
               name="width"
               onInput={this.handleInput}
+              rounded={false}
               type="text"
               value={this.props.value.width}
               />
@@ -91,6 +93,7 @@ class ProductForm extends React.Component {
               name="notes"
               label="Notes"
               onInput={this.handleInput}
+              rounded={false}
               value={this.props.value.notes}
               />
           </Col>
